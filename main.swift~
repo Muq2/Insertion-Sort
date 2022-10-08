@@ -1,0 +1,38 @@
+let unsortedIntegers = ["ball", "cat", "apple", "eat", "dog"]
+
+
+// Add your code below:
+var array = [String]()// = unsortedIntegers
+
+while let line = readLine() {
+    array.append(line)
+}
+
+
+func insertionSort(array:inout [String]){
+
+    var a = array
+    var pass = 0
+    var totalswaps = 0
+    
+    print("Pass: \(pass), Swaps: 0/0, Array: \(a)")
+
+    for x in 1..<a.count {
+        pass += 1
+        var swaps = 0
+        var y = x
+        let temp = a[y]
+        while y > 0 && temp < a[y-1]{
+            a[y] = a[y-1]
+            y-=1
+            swaps += 1
+        }
+        a[y] = temp
+        totalswaps += swaps
+        print("Pass: \(pass), Swaps: \(swaps)/\(totalswaps), Array: \(a)")
+    
+    }
+    
+}
+
+insertionSort(array: &array)
